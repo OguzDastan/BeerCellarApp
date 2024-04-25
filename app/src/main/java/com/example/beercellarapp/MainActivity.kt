@@ -11,10 +11,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.beercellarapp.ui.theme.BeerCellarAppTheme
+import android.content.Intent
+import android.widget.Button
+import com.example.beercellarapp.databinding.ActivityMainBinding
+
 
 class MainActivity : ComponentActivity() {
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setContent {
             BeerCellarAppTheme {
                 // A surface container using the 'background' color from the theme
@@ -23,6 +29,16 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+
+        val button = Button(this).apply {
+            text = "Go to Details"
+            setOnClickListener {
+                val intent = Intent(this@MainActivity, EmptyActivityTest::class.java)
+                startActivity(intent)
+            }
+        }
+
+        binding.root.addView(button)
     }
 }
 

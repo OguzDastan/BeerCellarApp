@@ -13,6 +13,16 @@
         android:theme="@style/Theme.BeerCellarApp"
         tools:targetApi="31">
         <activity
+            android:name=".EmptyActivityTest"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity2"
+            android:exported="false" />
+        <activity
+            android:name=".BasicTestView"
+            android:exported="false"
+            android:theme="@style/Theme.BeerCellarApp" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
